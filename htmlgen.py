@@ -7,11 +7,11 @@ m = folium.Map(location=[0, 0], zoom_start=3,
 # Carregar dados geográficos
 world_countries_df = gpd.read_file("world_countries.shp")
 world_countries_df.set_crs("EPSG:4326", inplace=True)
-paises_visitados = ["Portugal", "Spain", "France", "Italy", "Netherlands", "Belgium"]
+paises_visitados = ["Portugal", "Spain", "France", "Italy", "Netherlands", "Belgium", "Japan"]
 paises_visitados_df = world_countries_df[world_countries_df["ADMIN"].isin(paises_visitados)]
 paises_visitados_df["color"] = "green"
 # Países por visitar
-paises_por_visitar = ["Germany", "Japan", "China", "United Kingdom"]
+paises_por_visitar = ["Germany", "China", "United Kingdom"]
 paises_por_visitar_df = world_countries_df[world_countries_df["ADMIN"].isin(paises_por_visitar)]
 paises_por_visitar_df["color"] = "yellow"
 # Merged Dataframe
