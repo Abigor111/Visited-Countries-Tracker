@@ -63,6 +63,30 @@ legend_html = '''
 <i style="background:yellow; width:18px; height:18px; float:left; margin-right:8px; opacity:0.7;"></i> País por visitar
 </div>
 '''
+paises_visitados_len = len(paises_visitados)
+paises_total = len(world_countries_df)
+percentagem = (paises_visitados_len / paises_total) * 100
+info_html = f'''
+<div style="
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: 2px solid grey;
+    z-index: 9999;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    text-align: center;
+">
+    Países visitados: {paises_visitados_len} / {paises_total}<br>
+    ({percentagem:.1f}% do mundo)
+</div>
+'''
 
+m.get_root().html.add_child(folium.Element(info_html))
 m.get_root().html.add_child(folium.Element(legend_html))
 m.save("mapa.html")
